@@ -8,8 +8,8 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Repository // Marks this class as a Spring Data repository
-@Transactional // Ensures DB operations are transactional
+@Repository 
+@Transactional // 
 public abstract class BaseDAOImpl<T extends BaseDTO> implements BaseDAOInt<T> {
 
     @PersistenceContext // Correct annotation for EntityManager injection
