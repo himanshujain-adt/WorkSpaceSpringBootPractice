@@ -22,7 +22,7 @@ public class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>> impleme
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void update(T dto) {
 		// TODO Auto-generated method stub
-		baseDao.add(dto);
+		baseDao.update(dto);;
 
 	}
 

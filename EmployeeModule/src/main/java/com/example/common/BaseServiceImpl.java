@@ -7,20 +7,21 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 public class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>> implements BaseServiceInt<T> {
-	
+
 	@Autowired
 	protected D baseDao;
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public long add(T dto) {
-	
-		return baseDao.add(dto) ;
+
+		return baseDao.add(dto);
 	}
 
 	@Override
 	public void update(T dto) {
 		// TODO Auto-generated method stub
+		baseDao.update(dto);
 
 	}
 
@@ -33,13 +34,21 @@ public class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>> impleme
 	@Override
 	public T delete(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		T dto = findById(id);
+		try {
+			baseDao.delete(dto);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return dto;
 	}
 
 	@Override
 	public T findById(Long pk) {
 		// TODO Auto-generated method stub
-		return null;
+		return baseDao.findByPk(pk);
 	}
 
 	@Override
