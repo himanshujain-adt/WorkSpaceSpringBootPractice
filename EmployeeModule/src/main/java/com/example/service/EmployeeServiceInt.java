@@ -1,5 +1,5 @@
 package com.example.service;
 
-public interface EmployeeServiceInt {
+public interface EmployeeServiceInt  {
 
 }

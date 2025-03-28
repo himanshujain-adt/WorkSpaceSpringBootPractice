@@ -4,10 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
 @Data
+
 public class ORSResoponse {
 	public static final String INPUT_ERROR = "inputerror";
 	public static final String DATA = "data";
@@ -16,10 +19,12 @@ public class ORSResoponse {
 	private Map<String, Object> result = new HashMap<String, Object>();
 	public boolean success = false;
 
+	
 	public ORSResoponse(boolean success) {
 		this.success = success;
 	}
 
+	
 	public void addInputError(Object value) {
 		result.put(INPUT_ERROR, value);
 
